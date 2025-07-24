@@ -1,10 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+  <meta charset="utf-8">
   <meta http-equiv="refresh" content="0; url=https://github.com/MarkPagso03" />
-  <title>Redirecting...</title>
+  <title>Sharingan Loader</title>
+  <style>
+:root {
+  --tomoe-size: calc(100px / 6.5); /* updated based on new size */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: #222;
+}
+
+.sharingan {
+  width: 100px; /* reduced from 400px */
+  height: 100px; /* reduced from 400px */
+  border: calc(100px / 30) solid #000; /* adjusted */
+  border-radius: 50%;
+  background: gray;
+  box-shadow: 0 0 25px 2.5px gray inset; /* scaled down shadow */
+  position: relative;
+}
+
+.pupil {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px; /* reduced from 80px */
+  height: 20px; /* reduced from 80px */
+  background: #000;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 25px 2.5px #000; /* scaled down shadow */
+}
+
+.iris {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px; /* reduced from 200px */
+  height: 50px; /* reduced from 200px */
+  transform: translate(-50%, -50%);
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+
+.tomoes {
+  height: 100%;
+  width: 100%;
+  animation: rotateIris 1.4s linear infinite;
+}
+
+.tomoe-area {
+  position: absolute;
+  width: 50px; /* reduced from 200px */
+  height: 50px; /* reduced from 200px */
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tomoe {
+  width: var(--tomoe-size);
+  height: var(--tomoe-size);
+  position: absolute;
+  background-color: #000;
+  border-radius: 50%;
+  left: 50%;
+  top: -16.6%;
+  transform: translate(-50%);
+}
+
+.tomoe::before {
+  content: '';
+  position: absolute;
+  top: -30.3%;
+  left: 3.1%;
+  width: calc(var(--tomoe-size) * 1.51);
+  height: calc(var(--tomoe-size) * 1.69);
+  border-radius: 50%;
+  border-top: calc(var(--tomoe-size) / 2.6) solid #000;
+  border-left: calc(var(--tomoe-size) / 9.7) solid transparent;
+  transform: rotate(-35deg);
+}
+
+.tomoe-area:first-child {
+  transform: translate(-50%, -50%);
+}
+
+.tomoe-area:nth-child(2) {
+  transform: translate(-50%, -50%) rotate(120deg);
+}
+
+.tomoe-area:nth-child(3) {
+  transform: translate(-50%, -50%) rotate(-120deg);
+}
+
+@keyframes rotateIris {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+  </style>
 </head>
 <body>
-  <p>If you are not redirected, <a href="https://github.com/MarkPagso03">click here</a>.</p>
+  <div class="sharingan">
+    <div class="pupil"></div>
+    <div class="iris"></div>
+    <div class="tomoes">
+      <div class="tomoe-area">
+        <div class="tomoe"></div>
+      </div>
+      <div class="tomoe-area">
+        <div class="tomoe"></div>
+      </div>
+      <div class="tomoe-area">
+        <div class="tomoe"></div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
